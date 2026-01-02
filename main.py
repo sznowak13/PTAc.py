@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Union
 
 from PIL import Image, ImageDraw, ImageFont
 from PIL.Image import Resampling
@@ -75,14 +76,12 @@ def save_ascii_txt(ascii_metadata: list[list[int]], ascii_config: ASCIIConfig):
     print("ascii text saved")
 
 
-def save_ascii_image(ascii_data: list[list[int]], ascii_config: str or ASCIIConfig, height: int, width: int):
+def save_ascii_image(ascii_data: list[list[int]], ascii_config: Union[str, ASCIIConfig], height: int, width: int):
     print("Started saving ascii image")
     if isinstance(ascii_config, str):
         ascii_config = ASCII_CONFIGS[ascii_config]
-    elif isinstance(ascii_config, ASCII_CONFIGS):
+    elif isinstance(ascii_config, ASCIIConfig):
         pass
-    else:
-        raise ValueError("ASCIIConfig not of type str or ASCIConfig")
     ascii_image = Image.new('RGB', (width, height), color=ascii_config.bg_color)
     draw = ImageDraw.Draw(ascii_image)
     for y in range(len(ascii_data)):
