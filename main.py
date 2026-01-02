@@ -97,3 +97,4 @@ def save_ascii_image(ascii_data: list[list[int]], ascii_config: str or ASCIIConf
 if __name__ == '__main__':
     main()
 
+## This comment is not important.
