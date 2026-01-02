@@ -15,7 +15,6 @@ CHAR_NUMBER = len(ASCII_CHARS)
 LUM_BREAKPOINT = 255 / CHAR_NUMBER
 SCALE_FACTOR = 4
 
-
 @dataclass
 class ASCIIConfig:
     char_set: list[str]
@@ -95,8 +94,6 @@ def save_ascii_image(ascii_data: list[list[int]], ascii_config: str or ASCIIConf
     print("ascii image saved")
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
